@@ -7,26 +7,36 @@ import Total from './components/total/total'
 class App extends Component {
   state = {
     items: [
-      {id:1, product:'Pen', price:2},
-      {id:2, product:'Book', price:10}
+      {id: 1, product: 'Pen', price: 2, quantity: 1},
+      {id: 2, product: 'Book', price: 10, quantity: 1}
     ]
   }
 
   deleteItem = (id) => {
-    let items = this.state.items
-    let i = items.findIndex(item => item.id === id)
-    items.splice(i, 1)
-    this.setState({items: items})
+    let items = this.state.items;
+    let i = items.findIndex(item => item.id === id);
+    items.splice(i, 1);
+    this.setState({items: items});
   }
 
   addItem = (item) => {
+    item.quantity = 1;  // Default quantity to 1 when adding a new item
     this.state.items.length > 0 ? (
-      item.id = this.state.items[this.state.items.length - 1].id + 1 
-    ) : item.id = 1
-    console.log(item.id)
-    let items = this.state.items
-    items.push(item)
-    this.setState({items: items})
+      item.id = this.state.items[this.state.items.length - 1].id + 1
+    ) : item.id = 1;
+    let items = this.state.items;
+    items.push(item);
+    this.setState({items: items});
+  }
+
+  updateQuantity = (id, increment) => {
+    let items = this.state.items;
+    let i = items.findIndex(item => item.id === id);
+    if (items[i].quantity === 1 && !increment) {
+      return;  // Prevent quantity from going below 1
+    }
+    items[i].quantity += increment ? 1 : -1;
+    this.setState({items: items});
   }
 
   render() {
@@ -34,7 +44,7 @@ class App extends Component {
       <div className="container">
         <h1>Product List React App</h1>
         <div className="table">
-          <Items items={this.state.items} del={this.deleteItem}/>
+          <Items items={this.state.items} del={this.deleteItem} updateQuantity={this.updateQuantity}/>
           <AddItem add={this.addItem}/>
           <Total items={this.state.items}/>
         </div>

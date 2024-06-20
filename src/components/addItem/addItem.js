@@ -3,22 +3,23 @@ import React, {Component} from 'react';
 class addItem extends Component {
     state = {
         product: '',
-        price: ''
+        price: '',
+        quantity: 1  // Default quantity to 1
     }
 
     handleChange = (e) => {
-        console.log(e.target.id + ": " + e.target.value)
         this.setState({
             [e.target.id]: e.target.value
         })
     }
 
     handleSubmit = (e) => {
-        e.preventDefault()
-        this.props.add(this.state)
+        e.preventDefault();
+        this.props.add(this.state);
         this.setState({
             product: '',
-            price: ''
+            price: '',
+            quantity: 1  // Reset quantity to 1
         })
     }
 
