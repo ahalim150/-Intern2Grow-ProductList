@@ -1,0 +1,130 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: monospace;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 90vh;
+    width: 100%;
+    text-align: center;
+    background-color: #e3e3e3;
+    color: #080808;
+    padding: 10px 0;
+  }
+  
+  .container {
+    margin: 0 auto;
+    width: 96%;
+    max-width: 800px;
+  }
+  
+  .table {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: left;
+    border: 1px solid #08080833;
+    margin: 6px 0px;
+    background-color: #e3e3e3;
+  
+    &.header {
+      background-color: #0c0cb2;
+      color: #f7f7f7;
+  
+      p {
+        font-weight: bold;
+      }
+    }
+  
+    p {
+      padding: 8px 2px;
+      width: 100%;
+      font-size: 18px;
+      text-align: center;
+      border: 1px solid #08080833;
+    }
+  
+    .delete {
+      background-color: #b90c0c;
+      color: #e3e3e3;
+      font-size: 20px;
+      cursor: pointer;
+      transition-duration: 0.3s;
+  
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+  
+  form {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  
+    * {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #08080833;
+      padding: 2px 4px;
+      font-size: 16px;
+    }
+  
+    input[type="text"],
+    input[type="number"] {
+      outline: none;
+      background-color: #e3e3e3;
+    }
+  
+    input[type="submit"] {
+      font-weight: bold;
+      background-color: #0cb90c;
+      color: #e3e3e3;
+      font-size: 19px;
+      letter-spacing: 0.6px;
+      cursor: pointer;
+      transition-duration: 0.3s;
+  
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+  
+  .text {
+    padding: 10px;
+    font-size: 18px;
+    border: 2px solid #08080833;
+  }
+  
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+  
+    button {
+      background-color: #0c0cb2;
+      color: #f7f7f7;
+      font-size: 18px;
+      cursor: pointer;
+      border: none;
+      padding: 5px 10px;
+      margin: 0 5px;
+      transition-duration: 0.3s;
+  
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+  
